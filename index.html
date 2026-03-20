@@ -195,10 +195,11 @@
         <p>Najlepsze miksy, 24/7 bez przerwy.</p>
 
         <div class="player-box">
-            <span class="now-playing">TRASMISJA JEST TESTOWA</span>
+            <span class="now-playing">TRANSMISJA JEST TESTOWA</span>
             <div class="track-info">Radio Mix FM - Maximum Volume</div>
-            <!-- ODTWARZACZ Z PĘTLĄ (loop) I PRELOADEM -->
-            <audio id="radioPlayer" controls loop preload="auto">
+            
+            <!-- POPRAWIONY ODTWARZACZ (UKRYTE POBIERANIE I TEMPO) -->
+            <audio id="radioPlayer" controls loop preload="auto" controlsList="nodownload noplaybackrate">
                 <source src="radio.mp3" type="audio/mpeg">
                 Twoja przeglądarka nie obsługuje odtwarzacza audio.
             </audio>
@@ -210,8 +211,7 @@
         <div class="grid">
             <div class="card">
                 <h3>WKRÓTCE</h3>
-                <p>start stacji </p>
-            
+                <p>start stacji</p>
             </div>
         </div>
     </section>
@@ -220,12 +220,9 @@
         &copy; 2026 Radio Mix FM. Wszystkie prawa zastrzeżone.
     </footer>
 
-    <!-- SKRYPT  AUTOPLAY -->
     <script>
         const audio = document.getElementById('radioPlayer');
         
-        // Przeglądarki wymagają kliknięcia użytkownika, aby odtworzyć dźwięk.
-        // Poniższy kod spróbuje odpalić radio po pierwszym kliknięciu w dowolnym miejscu strony.
         document.body.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
